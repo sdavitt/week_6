@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+​
+
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css"
+        href="http://www.shieldui.com/shared/components/latest/css/shieldui-all.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+    ​<link rel="stylesheet" href="./api.css">
+    <!------ Include the above in your HEAD tag ---------->
+</head>
+​
+
+<body>
+    <div class="container">
+        <div class="container">
+            <br />
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div id="getAPI" class="btn btn-info" style="margin-bottom: 25px;">Get Racer API Information</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="text-center">Drivers<span class="glyphicon glyphicon-saved pull-right"></span>
+                            </h4>
+                        </div>
+                        <div class="panel-body text-center">
+                            <p class="lead">
+                                <strong>Select a Driver</strong>
+                            </p>
+                        </div>
+                        <ul id="driverlist" class="list-group list-group-flush">
+                            <!-- drivers list begin -->
+                        </ul>
+                        <div class="panel-footer">
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-3 col-md-4 col-lg-2">
+                                </div>
+                                <div class="col-xs-2 col-sm-4 col-md-4 col-lg-4" id="qr2">
+                                </div>
+                                <div class="col-xs-6 col-sm-5 col-md-4 col-lg-6">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="text-center">Racer Information<span
+                                    class="glyphicon glyphicon-user pull-right"></span>
+                            </h4>
+                        </div>
+                        <div class="panel-body text-center">
+                            <p id="driver-name-title" class="lead">
+                            </p>
+                        </div>
+                        <ul id="driver-info-table" class="list-group list-group-flush">
+                            <li class="list-group-item liitem"><strong>Position:</strong>
+                                <span id="position" class="pull-right"></span>
+                            </li>
+                            <li class="list-group-item liitem"><strong>Points:</strong>
+                                <span id="points" class="pull-right"></span>
+                            </li>
+                            <li class="list-group-item liitem"><strong>Wins:</strong>
+                                <span id="wins" class="pull-right"></span>
+                            </li>
+                            <li class="list-group-item liitem"><strong>DOB:</strong>
+                                <span id="dob" class="pull-right"></span>
+                            </li>
+                            <li class="list-group-item liitem"><strong>Nationality:</strong>
+                                <span id="nationality" class="pull-right"></span>
+                            </li>
+                            <li class="list-group-item liitem"><strong>Constructor:</strong>
+                                <span id="constructor" class="pull-right"></span>
+                            </li>
+                        </ul>
+                        <div class="panel-footer">
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-3 col-md-4 col-lg-2">
+                                </div>
+                                <div class="col-xs-2 col-sm-4 col-md-4 col-lg-4" id="qr1">
+                                </div>
+                                <div class="col-xs-6 col-sm-5 col-md-4 col-lg-6">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    ​
+    <script type="text/javascript"
+        src="http://www.shieldui.com/shared/components/latest/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript"
+        src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- <script type="text/javascript">
+        initializeRatings();
+        initializeQR1();
+        initializeQR2();
+        initializeChart1();
+​
+        function initializeChart1() {
+            var data1 = getRandomArray(20, 1, 50);
+            var data2 = getRandomArray(20, 20, 70);
+​
+            $("#chart1").shieldChart({
+                theme: "light",
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                primaryHeader: {
+                    text: "Performance Data"
+                },
+                tooltipSettings: {
+                    axisMarkers: {
+                        enabled: true,
+                        mode: 'x',
+                        width: 2,
+                        zIndex: 3,
+                        drawColor: "white"
+                    }
+                },
+                dataSeries: [
+                    {
+                        seriesType: 'bar',
+                        collectionAlias: 'Achieved',
+                        data: data1
+                    },
+                    {
+                        seriesType: 'line',
+                        collectionAlias: 'Target',
+                        data: data2
+                    }
+                ]
+            });
+        }
+​
+        function initializeQR1() {
+            $("#qr1").shieldQRcode({
+                mode: "byte",
+                size: 150,
+                value: "Mike Smith",
+                style: {
+                    color: "#1E97E3"
+                }
+            });
+        }
+​
+        function initializeQR1() {
+            $("#qr1").shieldQRcode({
+                mode: "byte",
+                size: 150,
+                value: "Mike Smith",
+                style: {
+                    color: "#1E97E3"
+                }
+            });
+        }
+​
+        function initializeQR2() {
+            $("#qr2").shieldQRcode({
+                mode: "byte",
+                size: 150,
+                value: "Avarage: 6.3",
+                style: {
+                    color: "#1E97E3"
+                }
+            });
+        }
+​
+        function initializeRatings() {
+​
+            $('#rate1').shieldRating({
+                max: 7,
+                step: 0.1,
+                value: 6.3,
+                markPreset: false
+            });
+            $('#rate2').shieldRating({
+                max: 7,
+                step: 0.1,
+                value: 6,
+                markPreset: false
+            });
+            $('#rate3').shieldRating({
+                max: 7,
+                step: 0.1,
+                value: 4.5,
+                markPreset: false
+            });
+            $('#rate4').shieldRating({
+                max: 7,
+                step: 0.1,
+                value: 5,
+                markPreset: false
+            });
+        }
+​
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+​
+        function getRandomArray(length, min, max) {
+            var array = [];
+            for (var boudary = 0; boudary < length; boudary++) {
+                array.push(getRandomInt(min, max));
+            }
+​
+            return array;
+        }
+    </script> -->
+    <script src="./api.js"></script>
+</body>
+​</html>

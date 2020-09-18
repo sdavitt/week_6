@@ -33,7 +33,7 @@ if (window.confirm("Ready to begin your quiz?")) {
     responses.push(ans);
   }
 }
-console.log(responses);
+//console.log(responses);
 for (var i = 0; i < qanda.length; i++) {
   answers.push(qanda[i][1]);
   if (responses[i].toLowerCase() === qanda[i][1].toLowerCase()) {
